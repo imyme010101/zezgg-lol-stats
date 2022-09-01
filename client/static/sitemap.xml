@@ -1,0 +1,107 @@
+<?php
+$db_host="host=0.0.0.0";
+$db_port="port=5432";
+$db_passwd="user=postgres password=Jinsoo8*3!";
+$db_name="dbname=zem2";
+$conn=pg_connect("$db_host $db_port $db_name $db_passwd");
+
+if($conn){
+
+header("Content-type: text/xml");
+if(empty($_GET['page'])) {
+  ob_start();
+    echo '<'.'?xml version="1.0" encoding="UTF-8"?'.'>';
+    echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+
+    $query = "SELECT COUNT(*) AS cnt FROM summoner_names";
+    $result = pg_exec($conn, $query); 
+    $row = pg_fetch_array($result);
+
+    $total_count = $row['cnt'];
+    $page_rows = 50000;
+    
+    $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산
+    $from_record = ($spage - 1) * $page_rows; // 시작 열을 구함
+
+    $query = " 
+    select sn.name, s.puuid, m.region, s.updated_at from summoners as s
+    INNER JOIN summoner_names as sn ON sn.summoner_puuid = s.puuid
+    INNER JOIN match_players as mp ON mp.summoner_puuid = sn.summoner_puuid
+    INNER JOIN matches as m ON m.id = mp.match_id
+    GROUP BY s.puuid, m.region, sn.name
+    ORDER BY s.updated_at DESC
+    LIMIT 1";
+    $result = pg_exec($conn, $query); 
+
+    $row = pg_fetch_array($result);
+    $lastmod = strtotime($row['updated_at']);
+    $lastmod = date("c", $lastmod);
+
+    for($i = 1; $i <= $total_page; $i++) {
+      $loc = "https://zem.gg/sitemap.xml?page=".$i;
+      echo '<sitemap>';
+      echo '<loc>'.$loc.'</loc>';
+      echo '<lastmod>'.$lastmod.'</lastmod>';
+      echo '</sitemap>';
+    }
+  echo '</sitemapindex>';
+  $xml = ob_get_clean();
+
+  echo $xml;
+
+  exit;
+} else if($_GET['page']) {
+  $spage = $_GET['page'];
+  
+  ob_start();
+    echo '<'.'?xml version="1.0" encoding="UTF-8"?'.'>';
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+
+    $query = "SELECT COUNT(*) AS cnt FROM summoner_names";
+    $result = pg_exec($conn, $query); 
+    $row = pg_fetch_array($result);
+
+    $total_count = $row['cnt'];
+    $page_rows = 50000;
+    
+    $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산
+    $from_record = ($spage - 1) * $page_rows; // 시작 열을 구함
+
+    $query = " 
+    select sn.name, s.puuid, m.region, s.updated_at from summoners as s
+    INNER JOIN summoner_names as sn ON sn.summoner_puuid = s.puuid
+    INNER JOIN match_players as mp ON mp.summoner_puuid = sn.summoner_puuid
+    INNER JOIN matches as m ON m.id = mp.match_id
+    GROUP BY s.puuid, m.region, sn.name
+    ORDER BY s.updated_at DESC
+    LIMIT ".$page_rows." OFFSET ".$from_record;
+    $result = pg_exec($conn, $query); 
+
+    while ($summoner = pg_fetch_array($result))
+    {
+      $turl = "https://zem.gg/summoner/".strtolower($summoner['region']) . "/" . rawurlencode($summoner['name']);
+      $changefreq = 'hourly';
+      $priority = '0.3';	
+      
+      $loc = $turl;
+      $lastmod = strtotime($summoner['updated_at']);
+      $lastmod = date("c", $lastmod);
+      
+      echo '<url>';
+      echo '<loc>'.$loc.'</loc>';
+      echo '<lastmod>'.$lastmod.'</lastmod>';
+      echo '<changefreq>'.$changefreq.'</changefreq>';
+      echo '<priority>'.$priority.'</priority>';
+      echo '</url>';
+    }
+  echo '</urlset>';
+  $xml = ob_get_clean();
+
+  echo $xml;
+
+  exit;
+}
+
+}
