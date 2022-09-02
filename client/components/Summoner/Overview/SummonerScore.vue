@@ -95,8 +95,7 @@ export default {
       } else {
         this.summonerScores['total'] = getSummonerScoreTotal(this.summonerScores)
       }
-    },
-    ...mapActions('summoner', ['scoresRequest']),
+    }
   },
 }
 </script>

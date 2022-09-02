@@ -4,7 +4,7 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "dev": "cp .env.dev .env && nuxi dev && tailwind-config-viewer -o",
+    "dev": "nuxi dev",
     "build": "cp .env.live .env && nuxi build",
     "start": "nuxit start",
     "generate": "cp .env.live .env && nuxi generate"
