@@ -36,18 +36,34 @@ export default class SummonersController {
       'vision-score_stddev',
     ] 
 
-    let rank_score: object = {}
+    console.log(
+      JSON.stringify(
+        {
+          iron: 0,
+          bronze: 0,
+          silver: 0,
+          gold: 0,
+          platinum: 0,
+          diamond: 0,
+          master: 0,
+          grandmaster: 0,
+          challenger: 0
+        }
+      )
+    )
 
-    // Load entire matchlist in DB if it's first time or update it
-    for await (const column of updateColumns) {
-      const keys: string[] = column.split('_')
+    // let rank_score: object = {}
 
-      rank_score[column.replace('-', '_')] = await MathRepository.getMathTierScore(keys[0].replace('-', '_'), keys[1])
-    }
+    // // Load entire matchlist in DB if it's first time or update it
+    // for await (const column of updateColumns) {
+    //   const keys: string[] = column.split('_')
 
-    await Database.table('rank_scores').insert({
-      ...rank_score
-    })
+    //   rank_score[column.replace('-', '_')] = await MathRepository.getMathTierScore(keys[0].replace('-', '_'), keys[1])
+    // }
+
+    // await Database.table('rank_scores').insert({
+    //   ...rank_score
+    // })
   }
   /**
    * Get all played seasons for a summoner

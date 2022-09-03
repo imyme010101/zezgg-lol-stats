@@ -14,7 +14,7 @@ class MultipleService {
 
   public async setMultiple(smultiplNames: string[], multipleDatas: object) {
     const multiple = await Multiple.create({
-      names: {...smultiplNames},
+      names: smultiplNames,
       datas: multipleDatas
     })
     

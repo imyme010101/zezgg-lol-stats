@@ -8,6 +8,8 @@ export default class MatchPlayerRanks extends BaseSchema {
       table.increments('id')
 
       table.integer('player_id').unsigned().notNullable().index()
+      
+      table.string('summoner_puuid', 78).notNullable().index()
 
       table.specificType('gamemode', 'smallint').notNullable()
 

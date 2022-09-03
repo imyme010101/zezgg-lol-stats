@@ -7,7 +7,7 @@ export default class Multiples extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      table.specificType('names', 'JSON').nullable()
+      table.specificType('names', 'char[]').nullable()
       table.specificType('datas', 'JSON').nullable()
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

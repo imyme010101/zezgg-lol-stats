@@ -6,7 +6,7 @@ export default class Multiple extends BaseModel {
   public id: number
 
   @column()
-  public names: object
+  public names: string[]
 
   @column()
   public datas: object
