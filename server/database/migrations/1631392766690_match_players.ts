@@ -64,7 +64,7 @@ export default class MatchPlayers extends BaseSchema {
 
       table.integer('perks_primary_style').notNullable()
       table.integer('perks_secondary_style').notNullable()
-      table.specificType('perks_selected', 'JSON').notNullable()
+      table.specificType('perks_selected', 'INT[]').notNullable()
     })
   }
 

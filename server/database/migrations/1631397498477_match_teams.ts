@@ -17,8 +17,8 @@ export default class MatchTeams extends BaseSchema {
       table.specificType('rift_heralds', 'smallint').notNullable()
       table.specificType('towers', 'smallint').notNullable()
 
-      table.specificType('bans', 'JSON').nullable()
-      table.specificType('ban_orders', 'JSON').nullable()
+      table.specificType('bans', 'smallint[]').nullable()
+      table.specificType('ban_orders', 'smallint[]').nullable()
     })
   }
 
