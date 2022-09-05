@@ -22,8 +22,6 @@ export default class UpdateRankScore implements JobContract {
 
   public async handle(job) {
     const { data }: { data: UpdateRankArgs } = job
-
-    console.log(data)
     
     const updateColumns: string[] = [
       'kda_avg',

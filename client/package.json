@@ -4,7 +4,7 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "dev": "nuxi dev",
+    "dev": "cp .env.dev .env && nuxi dev",
     "build": "cp .env.live .env && nuxi build",
     "start": "nuxit start",
     "generate": "cp .env.live .env && nuxi generate"

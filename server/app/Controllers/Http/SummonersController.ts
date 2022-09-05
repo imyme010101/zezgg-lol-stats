@@ -155,7 +155,6 @@ export default class SummonersController {
       // finalJSON.playing = !!finalJSON.current
       finalJSON.current = undefined
       finalJSON.playing = false
-      console.log(finalJSON.current, finalJSON.playing)
       console.timeEnd('playing')
 
       // RANKED STATS
