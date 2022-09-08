@@ -1,8 +1,6 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
-  target: 'static',
-
   bridge: {
 
     // -- Opt-in features --
@@ -44,10 +42,6 @@ export default defineNuxtConfig({
 
   vite: {
     // Config for Vite
-  },
-
-  app: {
-    baseURL: '/'
   },
 
   server: {
