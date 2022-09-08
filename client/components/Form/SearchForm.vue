@@ -6,7 +6,6 @@
     :style="{opacity: homepage ? 0 : 0.9}"
     class="fixed inset-0 z-20 bg-c-0"
   ></div>
-  
   <form
     @submit.prevent="formSubmit"
     :class="[{'w-1/2 mx-auto bg-c-1': homepage}, {'w-7/12 bg-white': !homepage}, {'w-full': $device.isMobile}]"

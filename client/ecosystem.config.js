@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'LOL-CLIENT',
+      name: 'ZEM.GG-CLIENT',
       exec_mode: 'cluster',
       instances: 'max',
       script: './.output/server/index.mjs'
