@@ -6,4 +6,6 @@ coverage
 
 tmp
 
+.env
+
 yarn.lock
