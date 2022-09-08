@@ -13,18 +13,10 @@
 </template>
 
 <script>
-import { PolarArea } from 'vue-chartjs/legacy'
+import { PolarArea } from 'vue-chartjs'
 
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  RadialLinearScale
-} from 'chart.js'
-
-ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale)
+import { Chart, Title, Tooltip, Legend, ArcElement, RadialLinearScale } from 'chart.js/dist/chart.mjs'
+Chart.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale)
 
 export default {
   name: 'PolarAreaChart',

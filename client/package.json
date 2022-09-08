@@ -17,7 +17,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@saeris/vue-spinners": "^1.0.8",
     "babel-eslint": "^10.1.0",
-    "chart.js": "^3.8.0",
+    "chart.js": "^3.9.1",
     "mathjs": "^10.6.4",
     "nuxt-edge": "latest",
     "vue-chartjs": "^4.1.1",

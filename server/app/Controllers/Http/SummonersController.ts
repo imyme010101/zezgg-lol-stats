@@ -18,36 +18,36 @@ import SummonerOverviewValidator from 'App/Validators/SummonerOverviewValidator'
 import SummonerRecordValidator from 'App/Validators/SummonerRecordValidator'
 
 export default class SummonersController {
-  // public async tests() {
-  //   const updateColumns: string[] = [
-  //     'kda_avg',
-  //     'kda_stddev',
+  public async tests() {
+    const updateColumns: string[] = [
+      'kda_avg',
+      'kda_stddev',
 
-  //     'kills_avg',
-  //     'kills_stddev',
+      'kills_avg',
+      'kills_stddev',
 
-  //     'assists_avg',
-  //     'assists_stddev',
+      'assists_avg',
+      'assists_stddev',
 
-  //     'vision-score_avg',
-  //     'vision-score_stddev',
-  //   ] 
+      'vision-score_avg',
+      'vision-score_stddev',
+    ] 
 
-  //   console.log(
-  //     JSON.stringify(
-  //       {
-  //         iron: 0,
-  //         bronze: 0,
-  //         silver: 0,
-  //         gold: 0,
-  //         platinum: 0,
-  //         diamond: 0,
-  //         master: 0,
-  //         grandmaster: 0,
-  //         challenger: 0
-  //       }
-  //     )
-  //   )
+    console.log(
+      JSON.stringify(
+        {
+          iron: 0,
+          bronze: 0,
+          silver: 0,
+          gold: 0,
+          platinum: 0,
+          diamond: 0,
+          master: 0,
+          grandmaster: 0,
+          challenger: 0
+        }
+      )
+    )
 
     // let rank_score: object = {}
 
