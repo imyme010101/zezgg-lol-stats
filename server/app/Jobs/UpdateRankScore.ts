@@ -20,9 +20,8 @@ export interface UpdateRankArgs {
 export default class UpdateRankScore implements JobContract {
   public key = 'UpdateRankScore'
 
-  public async handle(job) {
-    const { data }: { data: UpdateRankArgs } = job
-    
+  public async handle(job: any = {}) {
+    console.log(job)
     const updateColumns: string[] = [
       'kda_avg',
       'kda_stddev',

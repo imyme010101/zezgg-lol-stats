@@ -17,40 +17,37 @@ import SummonerLiveValidator from 'App/Validators/SummonerLiveValidator'
 import SummonerOverviewValidator from 'App/Validators/SummonerOverviewValidator'
 import SummonerRecordValidator from 'App/Validators/SummonerRecordValidator'
 
-import MathRepository from 'App/Repositories/MathRepository'
-import Database from '@ioc:Adonis/Lucid/Database'
-
 export default class SummonersController {
-  public async tests() {
-    const updateColumns: string[] = [
-      'kda_avg',
-      'kda_stddev',
+  // public async tests() {
+  //   const updateColumns: string[] = [
+  //     'kda_avg',
+  //     'kda_stddev',
 
-      'kills_avg',
-      'kills_stddev',
+  //     'kills_avg',
+  //     'kills_stddev',
 
-      'assists_avg',
-      'assists_stddev',
+  //     'assists_avg',
+  //     'assists_stddev',
 
-      'vision-score_avg',
-      'vision-score_stddev',
-    ] 
+  //     'vision-score_avg',
+  //     'vision-score_stddev',
+  //   ] 
 
-    console.log(
-      JSON.stringify(
-        {
-          iron: 0,
-          bronze: 0,
-          silver: 0,
-          gold: 0,
-          platinum: 0,
-          diamond: 0,
-          master: 0,
-          grandmaster: 0,
-          challenger: 0
-        }
-      )
-    )
+  //   console.log(
+  //     JSON.stringify(
+  //       {
+  //         iron: 0,
+  //         bronze: 0,
+  //         silver: 0,
+  //         gold: 0,
+  //         platinum: 0,
+  //         diamond: 0,
+  //         master: 0,
+  //         grandmaster: 0,
+  //         challenger: 0
+  //       }
+  //     )
+  //   )
 
     // let rank_score: object = {}
 
@@ -64,7 +61,7 @@ export default class SummonersController {
     // await Database.table('rank_scores').insert({
     //   ...rank_score
     // })
-  }
+  // }
   /**
    * Get all played seasons for a summoner
    * @param puuid of the summoner
