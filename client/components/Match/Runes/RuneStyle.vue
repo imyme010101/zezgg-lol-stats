@@ -172,24 +172,24 @@ export default {
 
 <style scoped>
 .not-used-rune {
-  /* @apply opacity-50 transition-all duration-150 ease-in-out; */
+  @apply opacity-50 transition-all duration-150 ease-in-out;
   filter: grayscale(100%);
 }
 
 .not-used-rune:hover {
-  /* @apply opacity-100; */
+  @apply opacity-100;
   filter: none;
 }
 
 .used-rune {
-  /* @apply transition-all duration-75 ease-in-out; */
+  @apply transition-all duration-75 ease-in-out;
 }
 
 .used-rune:hover {
   filter: brightness(1.2);
 }
 
-.rune-description >>> hr {
-  /* @apply border-teal-800; */
+.rune-description:deep(hr) {
+  @apply border-teal-800;
 }
 </style>

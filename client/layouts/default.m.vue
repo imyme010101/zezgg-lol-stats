@@ -54,24 +54,7 @@
               <span>AI 멀티서치</span>
             </nuxt-link>
           </div>
-          
-          <!-- <nuxt-link
-            :to="{ name: 'multiple-region-names', params: { region: selectedRegion }}"
-            class="z-20 flex flex-col items-center justify-center w-full px-4 py-4 text-xs font-bold gap-2 menu"
-          >
-            <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold font-gong">
-              M
-            </div>
-            <span>멀티 서치</span>
-          </nuxt-link> -->
         </div>
-          <!-- <nuxt-link
-            :to="{ name: 'multiple', params: { region: $route.params.region }}"
-            class="flex items-center justify-center text-teal-100 h-full px-4"
-          >
-            <img src="~/img/icon/multiple.svg" class="w-5 h-5 rounded-full bg-white flex items-center justify-center" />
-            <span class="ml-2">소환사 멀티서치</span>
-          </nuxt-link> -->
         <div
           class="w-full"
         >

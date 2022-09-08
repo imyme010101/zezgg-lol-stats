@@ -1,3 +1,5 @@
+export const namespaced = true
+
 export const state = () => ({
   regionsList: {
     'br': 'br1',
@@ -14,11 +16,3 @@ export const state = () => ({
   },
   roles: ['TOP', 'JUNGLE', 'MIDDLE', 'BOTTOM', 'UTILITY']
 })
-
-
-export const mutations = {
-}
-
-export const actions = {
-}
-

@@ -1,6 +1,5 @@
 import { createCDragonAssetUrl, secToTime, timeDifference } from '@/helpers/functions.js'
 import { maps, gameModes } from '@/data/data.js'
-import state from '@/store/index.js'
 
 import { mean } from "mathjs"
 

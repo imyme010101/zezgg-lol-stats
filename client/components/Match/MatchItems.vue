@@ -96,45 +96,45 @@ export default {
 </script>
 
 <style scoped>
-.item-description >>> stats {
-  /* @apply text-white leading-tight; */
+.item-description:deep(stats) {
+  @apply text-white leading-tight;
 }
 
-.item-description >>> br + br {
-  /* @apply hidden; */
+.item-description:deep(br + br) {
+  @apply hidden;
 }
 
-.item-description >>> stats br {
-  /* @apply block; */
+.item-description:deep(stats br) {
+  @apply block;
 }
 
-.item-description >>> li {
-  /* @apply block mt-2; */
+.item-description:deep(li) {
+  @apply block mt-2;
 }
 
-.item-description >>> passive {
-  /* @apply text-white font-normal; */
+.item-description:deep(passive) {
+  @apply text-white font-normal;
 }
 
-.item-description >>> active {
-  /* @apply inline-block text-white font-bold mt-2; */
+.item-description:deep(active) {
+  @apply inline-block text-white font-bold mt-2;
 }
 
-.item-description >>> unique,
-.item-description >>> li > passive:first-child,
-.item-description >>> raritymainitem {
-  /* @apply text-white font-bold block mt-2; */
+.item-description:deep(unique),
+.item-description:deep(li > passive:first-child),
+.item-description:deep(raritymainitem) {
+  @apply text-white font-bold block mt-2;
 }
 
-.item-description >>> font {
-  /* @apply text-teal-400; */
+.item-description:deep(font) {
+  @apply text-teal-400;
 }
 
-.item-description >>> rules {
-  /* @apply inline-block mt-2 text-teal-400 italic; */
+.item-description:deep(rules) {
+  @apply inline-block mt-2 text-teal-400 italic;
 }
 
-.item-description >>> rules active {
-  /* @apply inline text-white font-normal; */
+.item-description:deep(rules active) {
+  @apply inline text-white font-normal;
 }
 </style>

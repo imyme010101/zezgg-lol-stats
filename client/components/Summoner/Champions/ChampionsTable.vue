@@ -84,14 +84,9 @@
 
 <script>
 import { colors } from '@/data/data.js'
-import { ContentLoader } from 'vue-content-loader'
 import { timeDifference } from '@/helpers/functions.js'
 
 export default {
-  components: {
-    ContentLoader,
-  },
-
   props: {
     champions: {
       type: Array,

@@ -1,7 +1,49 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
-  //target: 'static',
+  bridge: {
+
+    // -- Opt-in features --
+
+    // Use Vite as the bundler instead of webpack 4
+    vite: true,
+
+    // Enable Nuxt 3 compatible useHead
+    // meta: true,
+
+    // -- Default features --
+
+    // Use legacy server instead of Nitro
+    // nitro: false,
+
+    // Disable Nuxt 3 compatible `nuxtApp` interface
+    // app: false,
+
+    // Disable Composition API support
+    // capi: false,
+
+    // ... or just disable legacy Composition API support
+    // capi: {
+    //   legacy: false
+    // },
+
+    // Do not transpile modules
+    // transpile: false,
+
+    // Disable <script setup> support
+    // scriptSetup: false,
+
+    // Disable composables auto importing
+    // imports: false,
+
+    // Do not warn about module incompatibilities
+    // constraints: false
+  },
+
+  vite: {
+    // Config for Vite
+  },
+
   
   server: {
     host: '0.0.0.0',
@@ -65,8 +107,7 @@ export default defineNuxtConfig({
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~plugins/fillters.js',
-    { src: '~plugins/vue-sticky-sidebar.js', mode: 'client' }
+    '~plugins/fillters.js'
   ],
 
   image: {
@@ -79,15 +120,14 @@ export default defineNuxtConfig({
   },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxt/postcss8',
     '@nuxtjs/device'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
@@ -102,38 +142,17 @@ export default defineNuxtConfig({
     siteUrl: process.env.SITE_URL,
   },
 
-  // proxy: {
-  //   '/api': { target: process.env.API_URL, pathRewrite: {'^/api': ''} }
-  // },
-
-  tailwindcss: {
-    viewer: true
-  },
-
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
       plugins: {
+        'postcss-preset-env': {
+          autoprefixer: {},
+        },
         tailwindcss: {},
         autoprefixer: {},
       },
-    },
-    html: {
-      minify: {
-        collapseBooleanAttributes: true,
-        decodeEntities: true,
-        minifyCSS: true,
-        minifyJS: true,
-        processConditionalComments: true,
-        removeEmptyAttributes: true,
-        removeRedundantAttributes: true,
-        trimCustomFragments: true,
-        useShortDoctype: true,
-        preserveLineBreaks: false,
-        collapseWhitespace: true
-      }
-    },
+    }
   }
 
 })

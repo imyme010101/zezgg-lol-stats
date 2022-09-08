@@ -10,8 +10,8 @@
           class="px-3 pb-4 overflow-y-auto style-2"
         >
           <div>
-            <div v-if="recentSearches.length" class="text-base text-c-0 font-bold">최근 검색 소환사</div>
-            <div v-else-if="favorites.length === 0" class="text-base text-c-0 font-bold">주인장 소환사</div>
+            <div v-if="recentSearches.length" class="text-base text-c-0 font-bold pt-3 pb-2">최근 검색 소환사</div>
+            <div v-else-if="favorites.length === 0" class="text-base text-c-0 font-bold pt-3 pb-2">주인장 소환사</div>
             <div
               ref="searches"
               @keydown.prevent.stop.enter="onOptionSelect()"
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div v-if="favorites.length" :class="{'mt-4': recentSearches.length}">
-            <div class="text-base text-c-0 font-bold">즐겨찾는 소한사</div>
+            <div class="text-base text-c-0 font-bold pt-3 pb-2">즐겨찾는 소한사</div>
             <div
               ref="favorites"
               @keydown.prevent.stop.enter="onOptionSelect()"
@@ -133,14 +133,11 @@ export default {
       recentSearches: state => state.settings.recentSearches
     })
   },
-  created() {
-    if(process.browser) {
-      window.addEventListener('mousedown', this.handleClick)
-      window.addEventListener('keydown', this.handleKeyDown)
-    }
-  },
 
   mounted() {
+    window.addEventListener('mousedown', this.handleClick)
+    window.addEventListener('keydown', this.handleKeyDown)
+
     // const input = document.querySelector('.summoner-input')
     // input.focus()
     this.recentSearchesCount = this.$refs.searches ? this.$refs.searches.children.length : 0
@@ -153,10 +150,8 @@ export default {
   },
 
   beforeDestroy() {
-    if(process.browser) {
-      window.removeEventListener('mousedown', this.handleClick)
-      window.removeEventListener('keydown', this.handleKeyDown)
-    }
+    window.removeEventListener('mousedown', this.handleClick)
+    window.removeEventListener('keydown', this.handleKeyDown)
   },
 
   methods: {
