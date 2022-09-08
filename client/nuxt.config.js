@@ -1,12 +1,14 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
+  target: 'static',
+
   bridge: {
 
     // -- Opt-in features --
 
     // Use Vite as the bundler instead of webpack 4
-    vite: true,
+    vite: process.env.VITE ? true : false,
 
     // Enable Nuxt 3 compatible useHead
     // meta: true,
@@ -44,7 +46,10 @@ export default defineNuxtConfig({
     // Config for Vite
   },
 
-  
+  app: {
+    baseURL: '/'
+  },
+
   server: {
     host: '0.0.0.0',
     port: process.env.PORT
