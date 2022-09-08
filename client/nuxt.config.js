@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
+  target: 'server',
   bridge: {
 
     // -- Opt-in features --
@@ -127,7 +128,6 @@ export default defineNuxtConfig({
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxt/image'
