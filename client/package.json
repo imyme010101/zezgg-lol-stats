@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cp .env.dev .env && nuxi dev",
     "build": "cp .env.live .env && nuxi build",
-    "start": "nuxit start",
+    "devbuild": "cp .env.dev .env &&  nuxi build",
     "generate": "cp .env.live .env && nuxi generate"
   },
   "dependencies": {

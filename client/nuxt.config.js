@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     // -- Opt-in features --
 
     // Use Vite as the bundler instead of webpack 4
-    vite: process.env.VITE ? true : false,
+    vite: process.env.NODE_ENV !== 'production' ? true : false,
 
     // Enable Nuxt 3 compatible useHead
     // meta: true,
