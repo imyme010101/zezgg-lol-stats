@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 require('dotenv').config()
 
+
 export default defineNuxtConfig({
   bridge: {
 
@@ -119,7 +120,7 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     '@nuxt/postcss8',
     '@nuxtjs/device',
-    ['@nuxtjs/dotenv', { path: './' }]
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
