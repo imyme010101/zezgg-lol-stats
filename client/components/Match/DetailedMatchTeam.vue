@@ -391,7 +391,7 @@
 <script>
 import { colors } from '@/data/data.js'
 import { mapActions, mapState } from 'vuex'
-import DotsLoader from '@/components/Common/DotsLoader.vue'
+import DotsLoader from '@/components/Common/Loader.vue'
 import Tooltip from '@/components/Common/Tooltip.vue'
 import MatchItems from '@/components/Match/MatchItems.vue'
 

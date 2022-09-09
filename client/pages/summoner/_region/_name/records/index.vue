@@ -81,7 +81,7 @@
 
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
-import RecordLoader from '@/components/Summoner/Records/RecordLoader.vue'
+import RecordLoader from '@/components/Common/Loader.vue'
 import RecordCard from '@/components/Summoner/Records/RecordCard.vue'
 
 export default {

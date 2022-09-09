@@ -22,7 +22,7 @@ import { mapActions, mapGetters, mapState } from 'vuex'
 import { gameModes } from '@/data/data.js'
 import ChampionsTable from '@/components/Summoner/Champions/ChampionsTable.vue'
 import FilterQueue from '@/components/Summoner/Champions/FilterQueue.vue'
-import ChampionsLoader from '@/components/Summoner/Champions/ChampionsLoader.vue'
+import ChampionsLoader from '@/components/Common/Loader.vue'
 
 export default {
   components: {

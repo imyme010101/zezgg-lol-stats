@@ -56,6 +56,10 @@ export default {
   },
   
   computed: {
+    async asyncData({ store, params }) {
+      await store.dispatch('cdragon/getRunes', {})
+    },
+    
     bgNumber() {
       return randomInt(1, 5)
     }

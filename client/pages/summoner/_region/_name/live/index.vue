@@ -38,7 +38,7 @@
 import { mapActions, mapGetters, mapState } from 'vuex'
 import { liveGame } from '@/mixins/liveGame'
 import LiveTeam from '@/components/Summoner/Live/LiveTeam.vue'
-import LiveLoader from '@/components/Summoner/Live/LiveLoader.vue'
+import LiveLoader from '@/components/Common/Loader.vue'
 
 export default {
   components: {
@@ -65,8 +65,6 @@ export default {
 
   created() {
     this.fetchData()
-
-    this.getRunes()
   },
 
   methods: {
@@ -75,7 +73,6 @@ export default {
         this.liveMatchRequest()
       }
     },
-    ...mapActions('cdragon', ['getRunes']),
     ...mapActions('summoner', ['liveMatchRequest']),
   },
 

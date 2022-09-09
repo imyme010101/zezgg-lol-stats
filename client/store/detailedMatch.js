@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import { getApiUrl } from '@/helpers/functions'
 
 export const namespaced = true
 
@@ -51,11 +50,11 @@ export const mutations = {
 }
 
 export const actions = {
-  async matchDetails({ commit }, matchId) {
+  async matchDetails({ commit, rootState }, matchId) {
     commit('MATCH_LOADING', matchId)
     // console.log('MATCH DETAILS STORE', matchId)
 
-    const resp = await this.$axios.$post(getApiUrl() + 'match/details', { matchId })
+    const resp = await this.$axios.$post('match/details', { matchId })
     // console.log('--- DETAILS INFOS ---')
     // console.log(resp.data)
     const {matchDetails, ranksLoaded} = resp

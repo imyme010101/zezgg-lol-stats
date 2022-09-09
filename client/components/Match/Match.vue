@@ -360,7 +360,7 @@ export default {
   computed: {
     ...mapState({
       account: state => state.summoner.basic.account,
-      roles: state => state.roles
+      roles: state => state.settings.roles
     }),
     ...mapGetters('detailedMatch', ['getMatchDetails']),
   },

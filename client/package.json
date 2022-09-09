@@ -15,7 +15,6 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
-    "@saeris/vue-spinners": "^1.0.8",
     "babel-eslint": "^10.1.0",
     "chart.js": "^3.9.1",
     "mathjs": "^10.6.4",
@@ -32,6 +31,8 @@
     "@tailwindcss/forms": "^0.5.3",
     "eslint": "^8.23.0",
     "postcss": "8",
-    "postcss-preset-env": "^7.8.1"
+    "postcss-preset-env": "^7.8.1",
+    "sass": "^1.54.9",
+    "sass-loader": "^13.0.2"
   }
 }

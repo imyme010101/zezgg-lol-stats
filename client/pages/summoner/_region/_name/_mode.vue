@@ -141,7 +141,7 @@
 import { mapState, mapActions, mapGetters } from 'vuex'
 import LoadingButton from '@/components/Form/LoadingButton.vue'
 import Match from '@/components/Match/Match.vue'
-import OverviewLoader from '@/components/Summoner/Overview/OverviewLoader.vue'
+import OverviewLoader from '@/components/Common/Loader.vue'
 import SummonerScore from '@/components/Summoner/Overview/SummonerScore.vue'
 import SummonerChampions from '@/components/Summoner/Overview/SummonerChampions.vue'
 import SummonerMates from '@/components/Summoner/Overview/SummonerMates.vue'
@@ -199,8 +199,7 @@ export default {
       this.metaStats = value
     },
 
-    ...mapActions('cdragon', ['getRunes']),
-    ...mapActions('summoner', ['basicRequest', 'moreMatches', 'overviewRequest', 'sliceOverviewMatches'])
+    ...mapActions('summoner', ['moreMatches', 'overviewRequest', 'sliceOverviewMatches'])
   },
 
   head() {

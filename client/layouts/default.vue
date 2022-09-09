@@ -141,8 +141,7 @@ export default {
       this.$router.push(`/summoner/${region}/${summoner}`)
     },
 
-    ...mapActions('settings', ['updatePercent', 'updateSettings']),
-    ...mapActions('summoner', ['basicRequest'])
+    ...mapActions('settings', ['updatePercent', 'updateSettings'])
   }
   // async asyncData({ store, params }) {
   //   await store.dispatch('settings/updateSettings', { name: 'region', value: params.region.toLowerCase() })

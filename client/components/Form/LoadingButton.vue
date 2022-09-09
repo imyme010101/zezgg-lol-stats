@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { BounceLoader } from '@saeris/vue-spinners'
+import BounceLoader from '@/components/Common/Loader.vue'
 
 export default {
   components: {

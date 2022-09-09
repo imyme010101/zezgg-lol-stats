@@ -76,7 +76,7 @@
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
 import MultipleSearch from '@/components/Multiple/MultipleSearch.vue'
-import MultipleLoader from '@/components/Multiple/MultipleLoader.vue'
+import MultipleLoader from '@/components/Common/Loader.vue'
 import { getSummonerScore, getSummonerScoreTotal, getTeamScore, getCarryScore } from '@/helpers/summoner'
 import { arrRankAsk } from '@/helpers/functions.js'
 

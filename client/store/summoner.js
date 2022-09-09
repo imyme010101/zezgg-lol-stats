@@ -1,5 +1,4 @@
 import { createMatchData, createBasicSummonerData, createRecordsData } from '@/helpers/summoner'
-import { getApiUrl } from '@/helpers/functions'
 
 export const namespaced = true
 
@@ -150,10 +149,11 @@ export const mutations = {
 
 export const actions = {
   async basicRequest({ commit, dispatch, rootState }, { summoner, region }) {
-    const regionId = rootState.regionsList[region]
+    const regionId = rootState.settings.regionsList[region]
+    
     commit('BASIC_REQUEST')
     try {
-      const resp = await this.$axios.$post(getApiUrl() + 'summoner/basic', { summoner, region: regionId })
+      const resp = await this.$axios.$post('summoner/basic', { summoner, region: regionId })
       
       if (!resp) {
         // dispatch('notification/add', {
@@ -184,7 +184,7 @@ export const actions = {
     commit('CHAMPIONS_NOT_FOUND')
   },
   async championsRequest({ commit, rootState }, queue = null) {
-    const resp = await this.$axios.$post(getApiUrl() + 'summoner/champions', { puuid: rootState.summoner.basic.account.puuid, queue: queue })
+    const resp = await this.$axios.$post('summoner/champions', { puuid: rootState.summoner.basic.account.puuid, queue: queue })
     //console.log(`---CHAMPIONS---')
     //console.log(resp.data)
 
@@ -192,7 +192,7 @@ export const actions = {
   },
   async liveMatchRequest({ commit, rootState }) {
     commit('LIVE_LOADING')
-    const resp = await this.$axios.$post(getApiUrl() + 'summoner/live', { id: rootState.summoner.basic.account.id, region: rootState.regionsList[rootState.settings.region] })
+    const resp = await this.$axios.$post('summoner/live', { id: rootState.summoner.basic.account.id, region: rootState.settings.regionsList[rootState.settings.region] })
 
     //console.log(`---LIVE---')
     //console.log(resp.data)
@@ -209,7 +209,7 @@ export const actions = {
     if (!rootState.summoner.overview.matches.length) return
     const lastMatchId = rootState.summoner.overview.matches[rootState.summoner.overview.matches.length - 1].matchId
 
-    const resp = await this.$axios.$post(getApiUrl() + 'match', { puuid: rootState.summoner.basic.account.puuid, region: rootState.regionsList[rootState.settings.region], lastMatchId, queue: rootState.summoner.basic.currentGameMode ? rootState.summoner.basic.currentGameMode : '' })
+    const resp = await this.$axios.$post('match', { puuid: rootState.summoner.basic.account.puuid, region: rootState.settings.regionsList[rootState.settings.region], lastMatchId, queue: rootState.summoner.basic.currentGameMode ? rootState.summoner.basic.currentGameMode : '' })
 
     //console.log(`---MATCHES INFOS---')
     //console.log(resp.data)
@@ -217,13 +217,13 @@ export const actions = {
     commit('MATCHES_FOUND', { newMatches, stats: resp.stats })
   },
   async overviewRequest({ commit, rootState }, gamemode = null) {
-    const resp = await this.$axios.$post(getApiUrl() + 'summoner/overview', { puuid: rootState.summoner.basic.account.puuid, accountId: rootState.summoner.basic.account.accountId, region: rootState.regionsList[rootState.settings.region], queue: gamemode ? String(gamemode) : '' })
+    const resp = await this.$axios.$post('summoner/overview', { puuid: rootState.summoner.basic.account.puuid, accountId: rootState.summoner.basic.account.accountId, region: rootState.settings.regionsList[rootState.settings.region], queue: gamemode ? String(gamemode) : '' })
     
     resp.matches = createMatchData(resp.matchesDetails, rootState.cdragon.runes)
     commit('OVERVIEW_FOUND', resp)
   },
   async recordsRequest({ commit, rootState }) {
-    const resp = await this.$axios.$post(getApiUrl() + 'summoner/records', { puuid: rootState.summoner.basic.account.puuid })
+    const resp = await this.$axios.$post('summoner/records', { puuid: rootState.summoner.basic.account.puuid })
     //console.log(`---RECORDS---')
     //console.log(resp.data)
     const records = resp.length ? createRecordsData(resp) : {}
@@ -231,7 +231,7 @@ export const actions = {
     commit('RECORDS_FOUND', { records })
   },
   async scoresRequest({ commit, rootState }) {
-    const resp = await this.$axios.$post(getApiUrl() + 'summoner/summonerscore', { puuid: rootState.summoner.basic.account.puuid, tier: rootState.summoner.basic.ranked.soloQ.tier })
+    const resp = await this.$axios.$post('summoner/summonerscore', { puuid: rootState.summoner.basic.account.puuid, tier: rootState.summoner.basic.ranked.soloQ.tier })
     //console.log(`---TIERSCORE---')
     
     const scores = resp.summonerScores

@@ -1,5 +1,4 @@
-import { createMatchData, createBasicSummonerData, createRecordsData } from '@/helpers/summoner'
-import { getApiUrl } from '@/helpers/functions'
+import { createBasicSummonerData, createRecordsData } from '@/helpers/summoner'
 
 export const namespaced = true
 
@@ -25,12 +24,12 @@ export const mutations = {
 
 export const actions = {
   async multipleRequest({ commit, dispatch, rootState }, { summoners, region }) {
-    const regionId = rootState.regionsList[region]
+    const regionId = rootState.settings.regionsList[region]
     commit('MULTIPLE_REQUEST')
     
     try {
       
-      const resp = await this.$axios.$post(getApiUrl() + 'multiple', { summoners: summoners, region: regionId })
+      const resp = await this.$axios.$post('multiple', { summoners: summoners, region: regionId })
       
       if (!resp) {
         dispatch('notification/add', {

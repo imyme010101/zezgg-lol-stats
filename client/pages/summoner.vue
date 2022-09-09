@@ -192,7 +192,6 @@ export default {
       this.updateFavorite(player)
     },
     ...mapActions('settings', ['updateSettings', 'updateFavorite']),
-    ...mapActions('summoner', ['basicRequest']),
   }
 }
 </script>

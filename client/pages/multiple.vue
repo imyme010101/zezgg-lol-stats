@@ -21,6 +21,9 @@ export default {
   },
   
   computed: {
+    async asyncData({ store, params }) {
+      await store.dispatch('cdragon/getRunes', {})
+    }
   },
 
   methods: {

@@ -119,7 +119,7 @@ import { mapActions, mapState } from 'vuex'
 import DetailedMatchGlobalStats from '@/components/Match/DetailedMatchGlobalStats.vue'
 import DetailedMatchTeam from '@/components/Match/DetailedMatchTeam.vue'
 import SwitchToggle from '@/components/Form/SwitchToggle.vue'
-import DetaileLoader from '@/components/Match/DetaileLoader.vue'
+import DetaileLoader from '@/components/Common/Loader.vue'
 
 export default {
   components: {

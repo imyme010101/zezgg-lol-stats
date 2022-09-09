@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
+require('dotenv').config()
 
 export default defineNuxtConfig({
-  target: 'server',
   bridge: {
 
     // -- Opt-in features --
@@ -39,10 +39,6 @@ export default defineNuxtConfig({
 
     // Do not warn about module incompatibilities
     // constraints: false
-  },
-
-  vite: {
-    // Config for Vite
   },
 
   server: {
@@ -122,19 +118,20 @@ export default defineNuxtConfig({
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxt/postcss8',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    ['@nuxtjs/dotenv', { path: './' }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     '@nuxt/image'
   ],
 
   axios: {
-    //proxy: true,     // proxy 사용
+    // 모듈 설정
+    baseURL: process.client ? process.env.API_URL : process.env.LOCAL_API_URL
   },
 
   publicRuntimeConfig: {

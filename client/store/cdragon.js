@@ -1,5 +1,3 @@
-import { getApiUrl } from '@/helpers/functions'
-
 export const namespaced = true
 
 export const state = () => ({
@@ -27,10 +25,10 @@ export const actions = {
   displayOrHideRunes({ commit }, selectedRunes) {
     commit('DISPLAY_HIDE_RUNES', selectedRunes)
   },
-  async getRunes({ commit, getters }) {
+  async getRunes({ commit, getters, rootState }) {
     if (getters.runesLoaded) { return }
 
-    const resp = await this.$axios.$get(getApiUrl() + 'cdragon/runes')
+    const resp = await this.$axios.$get('cdragon/runes')
     //console.log(data)
     commit('SET_RUNES', resp)
   }

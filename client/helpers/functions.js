@@ -77,7 +77,3 @@ export function arrRankAsk(value, arr) {
 	if(rank > -1) return rank+1
 	return null
 }
-
-export function getApiUrl() {
-  return (process.client ? process.env.API_URL : process.env.LOCAL_API_URL) + '/'
-}
