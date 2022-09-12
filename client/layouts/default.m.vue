@@ -1,10 +1,8 @@
 <template>
   <div class="relative z-20">
-    <client-only>
-      <SVGContainer />
-      <NotificationsContainer />
-      <RunesContainer />
-    </client-only>
+    <SVGContainer />
+    <NotificationsContainer />
+    <RunesContainer />
 
     <header
       class="fixed w-full z-20 px-4 text-gray-100 transition-colors duration-100 ease-in-out bg-c-0"

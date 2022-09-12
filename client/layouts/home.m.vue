@@ -1,10 +1,8 @@
 <template>
   <div class="relative z-20">
-    <client-only>
-      <SVGContainer />
-      <NotificationsContainer />
-      <RunesContainer />
-    </client-only>
+    <SVGContainer />
+    <NotificationsContainer />
+    <RunesContainer />
 
 
     <header

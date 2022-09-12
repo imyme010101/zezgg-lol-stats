@@ -16,6 +16,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
     "babel-eslint": "^10.1.0",
+    "buffer": "^6.0.3",
     "chart.js": "^3.9.1",
     "mathjs": "^10.6.4",
     "nuxt-edge": "latest",

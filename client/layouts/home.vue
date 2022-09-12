@@ -1,10 +1,8 @@
 <template>
   <div class="relative flex flex-col z-20 bg-c-2">
-    <client-only>
-      <SVGContainer />
-      <NotificationsContainer />
-      <RunesContainer />
-    </client-only>
+    <SVGContainer />
+    <NotificationsContainer />
+    <RunesContainer />
 
     <header
       class="fixed w-full z-20 px-10 text-gray-100 transition-colors duration-100 ease-in-out bg-c-0"

@@ -79,6 +79,7 @@ import MultipleSearch from '@/components/Multiple/MultipleSearch.vue'
 import MultipleLoader from '@/components/Common/Loader.vue'
 import { getSummonerScore, getSummonerScoreTotal, getTeamScore, getCarryScore } from '@/helpers/summoner'
 import { arrRankAsk } from '@/helpers/functions.js'
+import { Buffer } from 'buffer'
 
 export default {
   layout: (ctx) => ctx.$device.isDesktop ? 'home' : 'home.m',

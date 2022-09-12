@@ -42,9 +42,12 @@ export default defineNuxtConfig({
     // constraints: false
   },
 
+  vite: {
+  },
+
   server: {
     host: '0.0.0.0',
-    port: process.env.PORT
+    port: Number(process.env.PORT)
   },
 
   loading: {
@@ -133,10 +136,6 @@ export default defineNuxtConfig({
   axios: {
     // 모듈 설정
     baseURL: process.client ? process.env.API_URL : process.env.LOCAL_API_URL
-  },
-
-  publicRuntimeConfig: {
-    siteUrl: process.env.SITE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

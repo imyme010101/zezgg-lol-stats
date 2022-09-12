@@ -1,11 +1,9 @@
 
 <template>
   <div class="flex flex-col min-h-screen bg-c-2">
-    <client-only>
-      <SVGContainer />
-      <NotificationsContainer />
-      <RunesContainer />
-    </client-only>
+    <SVGContainer />
+    <NotificationsContainer />
+    <RunesContainer />
 
     <header
       class="fixed w-full px-10 z-20 text-gray-100 transition-colors duration-100 ease-in-out bg-c-0"
