@@ -59,9 +59,14 @@ class MathRepository {
                   GROUP BY match_player_ranks.summoner_puuid))) AS challenger;
         `
 
-        const { rows } = await Database.rawQuery(query)
 
-        return rows[0]
+        const { rows } = await Database.rawQuery(query)
+        if (rows[0]['iron'])
+            return rows[0]
+        else
+            return {
+                'iron' : 1, 'bronze' : 1, 'silver' : 1, 'gold' : 1, 'platinum' : 1, 'diamond' : 1, 'master' : 1, 'grandmaster' : 1, 'challenger' : 1
+            }
     }
 
     public async getTierScore(tyoe: string, math: string) {
@@ -73,7 +78,10 @@ class MathRepository {
 
         const { rows } = await Database.rawQuery(query)
 
-        return rows[0][`${tyoe}_${math}`]
+        return 1
+        // return {
+        //     'iron' : 1, 'bronze' : 1, 'silver' : 1, 'gold' : 1, 'platinum' : 1, 'diamond' : 1, 'master' : 1, 'grandmaster' : 1, 'challenger' : 1
+        // };
     }
 }
 
