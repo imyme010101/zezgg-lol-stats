@@ -1,50 +1,6 @@
-import { defineNuxtConfig } from '@nuxt/bridge'
 require('dotenv').config()
 
-
-export default defineNuxtConfig({
-  bridge: {
-
-    // -- Opt-in features --
-
-    // Use Vite as the bundler instead of webpack 4
-    vite: process.env.NODE_ENV !== 'production' ? true : false,
-
-    // Enable Nuxt 3 compatible useHead
-    // meta: true,
-
-    // -- Default features --
-
-    // Use legacy server instead of Nitro
-    // nitro: false,
-
-    // Disable Nuxt 3 compatible `nuxtApp` interface
-    // app: false,
-
-    // Disable Composition API support
-    // capi: false,
-
-    // ... or just disable legacy Composition API support
-    // capi: {
-    //   legacy: false
-    // },
-
-    // Do not transpile modules
-    // transpile: false,
-
-    // Disable <script setup> support
-    // scriptSetup: false,
-
-    // Disable composables auto importing
-    // imports: false,
-
-    // Do not warn about module incompatibilities
-    // constraints: false
-  },
-
-  vite: {
-  },
-
+export default {
   server: {
     host: '0.0.0.0',
     port: Number(process.env.PORT)
@@ -150,5 +106,4 @@ export default defineNuxtConfig({
       },
     }
   }
-
-})
+}

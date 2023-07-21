@@ -81,11 +81,11 @@ export default {
   },
 
   created() {
-    document.addEventListener('keydown', this.handleEscape)
+    // document.addEventListener('keydown', this.handleEscape)
   },
 
   beforeDestroy() {
-    document.removeEventListener('keydown', this.handleEscape)
+    // document.removeEventListener('keydown', this.handleEscape)
   },
 
   methods: {
